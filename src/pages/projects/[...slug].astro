@@ -1,0 +1,122 @@
+---
+import { Image } from "@astrojs/image/components";
+import Button from "../../components/Button.astro";
+import ProjectDetail from "../../blocks/ProjectDetail.astro";
+import P from "../../components/P.astro";
+import Footer from "../../blocks/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const pages = [
+		{
+			slug: undefined,
+			title: "Astro Store",
+			text: "Welcome to the Astro store!",
+		},
+		{
+			slug: "inclusionweb",
+			title: "Astro products",
+			text: "We have lots of products for you",
+		},
+		{
+			slug: "de-lariks",
+			title: "The ultimate Astro handbook",
+			text: "If you want to learn Astro, you must read this book.",
+		},
+	];
+	return pages.map(({ slug, title, text }) => {
+		return {
+			params: { slug },
+			props: { title, text },
+		};
+	});
+}
+
+const { title, text } = Astro.props;
+---
+
+<Layout title="Project | Arnaud De Burchgraeve">
+	<main>
+		<section class="layout-wrapper py-16">
+			<a class="mb-20 block" href="/">Back Home</a>
+			<div class="relative flex flex-col justify-between">
+				<div class="flex items-center justify-between">
+					<span class="font-serif text-8xl uppercase">{title}</span>
+					<span class="text-5xl opacity-20">/22</span>
+				</div>
+				<p>Webdesign, Webdev</p>
+			</div>
+		</section>
+		<div class="">
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="w-full"
+				width={1000}
+				height={350}
+			/>
+		</div>
+		<div class="layout-wrapper py-20">
+			<P size="lg" className="w-1/2">
+				Alex Becher is a digital marketing expert. With years of experience under his belt, he
+				excels at helping businesses increase brand awareness through social media management and
+				the power of strong visuals.
+			</P>
+		</div>
+		<div class="layout-wrapper">
+			<div class="mb-16">
+				<ProjectDetail title="Project" description="Inclusionweb" />
+				<ProjectDetail title="Project" description="Inclusionweb" />
+				<ProjectDetail title="Project" description="Inclusionweb" />
+				<ProjectDetail title="Project" description="Inclusionweb" />
+				<ProjectDetail title="Project" description="Inclusionweb" />
+			</div>
+			<Button label="Visit Website" href="" />
+		</div>
+		<div class="layout-wrapper my-32">
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="my-4 w-full"
+				width={1000}
+				height={350}
+			/>
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="my-4 w-full"
+				width={1000}
+				height={350}
+			/>
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="my-4 w-full"
+				width={1000}
+				height={350}
+			/>
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="my-4 w-full"
+				width={1000}
+				height={350}
+			/>
+
+			<div class="my-12 flex items-end justify-between">
+				<div class="flex flex-col px-0">
+					<P size="sm">Next Project</P>
+					<span class="font-serif text-4xl uppercase">Inclusionweb</span>
+				</div>
+				<button class="relative h-12 w-12 rotate-180 rounded-full border-[1px] border-black">
+					<svg class="absolute-center" width="22.52" height="27.261" viewBox="0 0 22.52 27.261"
+						><path
+							d="M74.344,52.42,63.677,63.087a.593.593,0,0,1-.839,0L52.171,52.42a.593.593,0,1,1,.839-.839l9.655,9.655V36.593a.593.593,0,1,1,1.185,0V61.236l9.655-9.655a.593.593,0,1,1,.839.839Z"
+							transform="translate(-51.998 -36)"></path></svg
+					>
+				</button>
+			</div>
+		</div>
+		<Footer />
+	</main>
+</Layout>

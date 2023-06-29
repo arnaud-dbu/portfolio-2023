@@ -2,22 +2,27 @@
 import { Image } from "@astrojs/image/components";
 ---
 
-<div class="h-screen flex flex-col justify-between layout-wrapper py-12">
+<div class="layout-wrapper flex h-screen flex-col justify-between py-12">
 	<div class="flex justify-between">
 		<div class="flex flex-col">
-			<span class="text-9xl font-serif uppercase">Full stack developer</span>
-			<span class="uppercase font-sans text-2xl">- Front end addicited</span>
+			<span class="position mask-container font-serif text-9xl uppercase">Full stack</span>
+			<span class="position mask-container font-serif text-9xl uppercase">developer</span>
+			<span class="positionDetail mask-container font-sans text-2xl uppercase"
+				>- Front end addicited</span
+			>
 		</div>
-		<Image
-			src="/images/portret.jpg"
-			alt="Portret Arnaud De Burchgraeve"
-			class="w-96 h-fit object-contain"
-			width={300}
-			height={450}
-		/>
+		<div class="img-container">
+			<Image
+				src="/images/portret.jpg"
+				alt="Portret Arnaud De Burchgraeve"
+				class="img h-fit w-96 object-contain"
+				width={300}
+				height={450}
+			/>
+		</div>
 	</div>
 	<div class="flex items-end justify-between">
-		<div class="flex flex-col items-center gap-2">
+		<div class="scroll mask-container flex flex-col items-center gap-2">
 			<Image
 				src="/icons/arrow-down.svg"
 				alt="Arrow Icon"
@@ -27,6 +32,9 @@ import { Image } from "@astrojs/image/components";
 			/>
 			<span class="uppercase">Scroll</span>
 		</div>
-		<h1 class="text-9xl font-serif uppercase w-1/2 text-end">Arnaud De Burchgraeve</h1>
+		<div class="flex flex-col items-end whitespace-nowrap font-serif text-9xl uppercase">
+			<span class="name mask-container">Arnaud</span>
+			<span class="name mask-container">De Burchgraeve</span>
+		</div>
 	</div>
 </div>
