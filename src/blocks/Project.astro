@@ -1,0 +1,17 @@
+---
+export interface Props {
+	title: string;
+	categories: string;
+	year: string;
+}
+
+const { title, categories, year } = Astro.props;
+---
+
+<a href="/project" class="flex flex-col justify-between py-20 relative bottom-line">
+	<div class="flex items-center justify-between">
+		<span class="uppercase font-serif text-8xl">{title}</span>
+		<span class="text-5xl opacity-20">/{year}</span>
+	</div>
+	<p>{categories}</p>
+</a>

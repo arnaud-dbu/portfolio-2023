@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../blocks/Footer.astro";
+import { Image } from "@astrojs/image/components";
+import P from "../components/P.astro";
+---
+
+<Layout title="Project | Arnaud De Burchgraeve">
+	<main>
+		<section class="layout-wrapper py-16">
+			<a class="mb-20 block" href="/">Back Home</a>
+			<div class="flex flex-col justify-between relative">
+				<div class="flex items-center justify-between">
+					<span class="uppercase font-serif text-8xl">Inclusionweb</span>
+					<span class="text-5xl opacity-20">/22</span>
+				</div>
+				<p>Webdesign, Webdev</p>
+			</div>
+		</section>
+		<div class="">
+			<Image
+				src="/images/test-image.jpg"
+				alt="Inclusionweb"
+				class="w-full"
+				width={1000}
+				height={350}
+			/>
+		</div>
+		<div class="layout-wrapper py-20">
+			<P size="lg" className="w-1/2">
+				Alex Becher is a digital marketing expert. With years of experience under his belt, he
+				excels at helping businesses increase brand awareness through social media management and
+				the power of strong visuals.
+			</P>
+		</div>
+
+		<Footer />
+	</main>
+</Layout>

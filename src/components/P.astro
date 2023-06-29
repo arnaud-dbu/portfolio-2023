@@ -1,0 +1,12 @@
+---
+export interface Props {
+	size?: "sm" | "lg";
+	className?: string;
+}
+
+const { size, className } = Astro.props;
+---
+
+<p class=`leading-10 ${size === "sm" ? "text-lg" : "text-2xl"} ${className}`>
+	<slot />
+</p>

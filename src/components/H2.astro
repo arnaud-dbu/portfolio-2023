@@ -1,9 +1,10 @@
 ---
 export interface Props {
 	title: string;
+	className?: string;
 }
 
-const { title } = Astro.props;
+const { title, className } = Astro.props;
 ---
 
-<h2 class="text-5xl uppercase font-serif mb-10">{title}</h2>
+<h2 class=`text-5xl uppercase font-serif ${className}`>{title}</h2>
