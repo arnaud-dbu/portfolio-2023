@@ -19,8 +19,9 @@ const { title } = Astro.props;
 	</head>
 	<body class="bg-grey">
 		<slot />
-		<div class="cursor-dot-outline"></div>
-		<div class="cursor-dot"></div>
+		<div class="cursor"></div>
+		<div class="cursor-shadow"></div>
+		<div class="cursor2"></div>
 		<LocalScripts />
 	</body>
 </html>
@@ -29,6 +30,10 @@ const { title } = Astro.props;
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 	}
+	* {
+		cursor: none;
+	}
+
 	html {
 		font-family: system-ui, sans-serif;
 		background-color: #f6f6f6;
@@ -75,6 +80,16 @@ const { title } = Astro.props;
 		opacity: 0.1;
 	}
 
+	.division-line {
+		position: relative;
+		width: 100%;
+		height: 0.1rem;
+		background-color: black;
+		opacity: 0.2;
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
 	.top-line {
 		position: relative;
 	}
@@ -97,29 +112,59 @@ const { title } = Astro.props;
 		transform: translate(-50%, -50%) !important;
 	}
 
-	.cursor-dot,
-	.cursor-dot-outline {
+	.cursor {
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+		transition: all 200ms ease-out;
+		background-color: #f03232;
+		position: fixed;
 		pointer-events: none;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		border-radius: 50%;
-		opacity: 0;
+		left: 0;
+		top: 0;
+		transform: translate(calc(-50% + 15px), -50%);
+		mix-blend-mode: lighten;
+		transition: 0.15s linear;
+	}
+
+	.cursor-shadow {
+		width: 3rem;
+		height: 3rem;
+		border-radius: 100%;
+		transition: all 200ms ease-out;
+		background-color: transparent;
+		box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+		position: fixed;
+		pointer-events: none;
+		left: 0;
+		top: 0;
+		transform: translate(calc(-50% + 15px), -50%);
+		transition: 0.15s linear;
+	}
+
+	.cursor2 {
+		width: 0.4rem;
+		height: 0.4rem;
+		border-radius: 100%;
+		background-color: #f03232;
+		position: fixed;
 		transform: translate(-50%, -50%);
-		transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+		pointer-events: none;
+		transition: width 0.3s, height 0.3s, opacity 0.3s;
 	}
 
-	.cursor-dot {
-		width: 8px;
-		height: 8px;
-		background-color: red;
+	.hover {
+		width: 12.5rem;
+		height: 12.5rem;
+		opacity: 0.85;
 	}
 
-	.cursor-dot-outline {
-		width: 50px;
-		height: 50px;
-		background-color: blue;
-		background-color: rgba(blue, 0.5);
+	.cursorinnerhover {
+		width: 3rem;
+		height: 3rem;
+		border: 0.15rem solid #f03232;
+		background-color: transparent;
+		opacity: 0.2;
 	}
 
 	@font-face {
@@ -136,5 +181,19 @@ const { title } = Astro.props;
 		font-weight: normal;
 		font-style: normal;
 		font-display: swap;
+	}
+
+	@import url("https://fonts.googleapis.com/css?family=Montserrat:900");
+
+	[data-cursor] {
+		width: 50px;
+		height: 50px;
+		background: linear-gradient(120deg, #ff1744, #e040fb, #2979ff, #00e5ff, #76ff03);
+		background-size: 1600% 1600%;
+		mix-blend-mode: difference;
+		pointer-events: none;
+		z-index: 50;
+		transition: 0.15s linear;
+		animation: blobRadius 5s ease infinite, blobBackground 15s ease infinite;
 	}
 </style>

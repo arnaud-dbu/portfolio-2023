@@ -9,7 +9,7 @@ export interface Props {
 const { title, categories, year, href } = Astro.props;
 ---
 
-<a href={href} class="bottom-line relative flex flex-col justify-between py-20">
+<a href={href} class="project bottom-line relative flex flex-col justify-between py-20">
 	<div class="flex items-center justify-between">
 		<span class="font-serif text-8xl uppercase">{title}</span>
 		<span class="text-5xl opacity-20">/{year}</span>

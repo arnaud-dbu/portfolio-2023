@@ -1,110 +1,43 @@
-// var cursor = {
-// 	delay: 8,
-// 	_x: 0,
-// 	_y: 0,
-// 	endX: window.innerWidth / 2,
-// 	endY: window.innerHeight / 2,
-// 	cursorVisible: true,
-// 	cursorEnlarged: false,
-// 	$dot: document.querySelector(".cursor-dot"),
-// 	$outline: document.querySelector(".cursor-dot-outline"),
+// UPDATE: I was able to get this working again... Enjoy!
 
-// 	init: function () {
-// 		// Set up element sizes
-// 		this.dotSize = this.$dot.offsetWidth;
-// 		this.outlineSize = this.$outline.offsetWidth;
+var cursor = document.querySelector(".cursor");
+var cursorShadow = document.querySelector(".cursor-shadow");
+var cursorinner = document.querySelector(".cursor2");
+var a = document.querySelectorAll("a");
 
-// 		this.setupEventListeners();
-// 		this.animateDotOutline();
-// 	},
+document.addEventListener("mousemove", function (e) {
+	var x = e.clientX;
+	var y = e.clientY;
+	cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+	cursorShadow.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+});
 
-// 	setupEventListeners: function () {
-// 		var self = this;
+document.addEventListener("mousemove", function (e) {
+	var x = e.clientX;
+	var y = e.clientY;
+	cursorinner.style.left = x + "px";
+	cursorinner.style.top = y + "px";
+});
 
-// 		// Anchor hovering
-// 		document.querySelectorAll("a").forEach(function (el) {
-// 			el.addEventListener("mouseover", function () {
-// 				self.cursorEnlarged = true;
-// 				self.toggleCursorSize();
-// 			});
-// 			el.addEventListener("mouseout", function () {
-// 				self.cursorEnlarged = false;
-// 				self.toggleCursorSize();
-// 			});
-// 		});
+document.addEventListener("mousedown", function () {
+	cursor.classList.add("click");
+	cursorShadow.classList.add("click");
+	cursorinner.classList.add("cursorinnerhover");
+});
 
-// 		// Click events
-// 		document.addEventListener("mousedown", function () {
-// 			self.cursorEnlarged = true;
-// 			self.toggleCursorSize();
-// 		});
-// 		document.addEventListener("mouseup", function () {
-// 			self.cursorEnlarged = false;
-// 			self.toggleCursorSize();
-// 		});
+document.addEventListener("mouseup", function () {
+	cursor.classList.remove("click");
+	cursorShadow.classList.remove("click");
+	cursorinner.classList.remove("cursorinnerhover");
+});
 
-// 		document.addEventListener("mousemove", function (e) {
-// 			// Show the cursor
-// 			self.cursorVisible = true;
-// 			self.toggleCursorVisibility();
-
-// 			// Position the dot
-// 			self.endX = e.pageX;
-// 			self.endY = e.pageY;
-// 			self.$dot.style.top = self.endY + "px";
-// 			self.$dot.style.left = self.endX + "px";
-// 		});
-
-// 		// Hide/show cursor
-// 		document.addEventListener("mouseenter", function (e) {
-// 			self.cursorVisible = true;
-// 			self.toggleCursorVisibility();
-// 			self.$dot.style.opacity = 1;
-// 			self.$outline.style.opacity = 1;
-// 		});
-
-// 		document.addEventListener("mouseleave", function (e) {
-// 			self.cursorVisible = true;
-// 			self.toggleCursorVisibility();
-// 			self.$dot.style.opacity = 0;
-// 			self.$outline.style.opacity = 0;
-// 		});
-// 	},
-
-// 	animateDotOutline: function () {
-// 		var self = this;
-
-// 		self._x += (self.endX - self._x) / self.delay;
-// 		self._y += (self.endY - self._y) / self.delay;
-// 		self.$outline.style.top = self._y + "px";
-// 		self.$outline.style.left = self._x + "px";
-
-// 		requestAnimationFrame(this.animateDotOutline.bind(self));
-// 	},
-
-// 	toggleCursorSize: function () {
-// 		var self = this;
-
-// 		if (self.cursorEnlarged) {
-// 			self.$dot.style.transform = "translate(-50%, -50%) scale(0.75)";
-// 			self.$outline.style.transform = "translate(-50%, -50%) scale(1.5)";
-// 		} else {
-// 			self.$dot.style.transform = "translate(-50%, -50%) scale(1)";
-// 			self.$outline.style.transform = "translate(-50%, -50%) scale(1)";
-// 		}
-// 	},
-
-// 	toggleCursorVisibility: function () {
-// 		var self = this;
-
-// 		if (self.cursorVisible) {
-// 			self.$dot.style.opacity = 1;
-// 			self.$outline.style.opacity = 1;
-// 		} else {
-// 			self.$dot.style.opacity = 0;
-// 			self.$outline.style.opacity = 0;
-// 		}
-// 	},
-// };
-
-// cursor.init();
+a.forEach((item) => {
+	item.addEventListener("mouseover", () => {
+		cursor.classList.add("hover");
+		cursorShadow.classList.add("hover");
+	});
+	item.addEventListener("mouseleave", () => {
+		cursor.classList.remove("hover");
+		cursorShadow.classList.remove("hover");
+	});
+});

@@ -3,10 +3,13 @@ import H2 from "../components/H2.astro";
 import Project from "./Project.astro";
 ---
 
-<section class="layout-wrapper">
-	<div class="bottom-line flex items-end justify-between pb-5">
-		<H2 title="Selected work" />
-		<p>A piece of my selection of favorites</p>
+<section class="projects layout-wrapper invisible">
+	<div class="projects__header">
+		<div class="flex items-end justify-between pb-5">
+			<H2 title="Selected work" />
+			<p>A piece of my selection of favorites</p>
+		</div>
+		<hr class="division-line" />
 	</div>
 	<Project
 		href="/projects/inclusionweb"
