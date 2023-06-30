@@ -1,5 +1,6 @@
 ---
 import H2 from "../components/H2.astro";
+import P from "../components/P.astro";
 import Project from "./Project.astro";
 ---
 
@@ -7,7 +8,9 @@ import Project from "./Project.astro";
 	<div class="projects__header">
 		<div class="flex items-end justify-between pb-5">
 			<H2 title="Selected work" />
-			<p>A piece of my selection of favorites</p>
+			<P size="sm" className="hidden xl:block xl:opacity-100">
+				A piece of my selection of favorites
+			</P>
 		</div>
 		<hr class="division-line" />
 	</div>

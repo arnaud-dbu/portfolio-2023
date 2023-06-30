@@ -3,12 +3,14 @@ import P from "../components/P.astro";
 ---
 
 <section class="contact layout-wrapper invisible my-32">
-	<div class="flex items-center gap-10">
-		<span class="title mask-container w-[25rem] font-serif text-9xl uppercase">Get in touch</span>
+	<div class="flex items-center gap-5 xl:gap-10">
+		<span class="title mask-container font-serif text-4xl uppercase xl:w-[25rem] xl:text-9xl"
+			>Get in touch</span
+		>
 		<a href="#">
-			<div class="w-fit rounded-full border-2 border-black opacity-10">
+			<div class="relative h-16 w-16 rounded-full border-2 border-black opacity-10 xl:h-40 xl:w-40">
 				<svg
-					class="p-8"
+					class="absolute-center h-12 w-12 xl:h-40 xl:w-40 xl:p-8"
 					xmlns="http://www.w3.org/2000/svg"
 					width="200"
 					height="200"
@@ -20,7 +22,7 @@ import P from "../components/P.astro";
 			</div>
 		</a>
 	</div>
-	<P className="w-[25rem]">Let’s talk about a project, collaboration or an idea you may have</P>
+	<P className="xl:w-[25rem]">Let’s talk about a project, collaboration or an idea you may have</P>
 </section>
 
 <footer class="layout-wrapper">
