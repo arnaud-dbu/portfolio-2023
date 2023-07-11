@@ -10,45 +10,16 @@ const animations = {
 	},
 	cacheElements() {},
 	generateUI() {
-		// this.animateHero();
+		this.animateHero();
 		// this.generateScrollTrigger();
 	},
 	animateHero() {
-		const heroTimeline = gsap.timeline();
+		let tl = gsap.timeline();
 
-		heroTimeline
+		tl.call(animateText, [".name", 0])
 			.call(animateText, [".position", 0])
-			.call(animateText, [".positionDetail", 0.025])
-			.call(animateText, [".name", 0.1])
-			.set(
-				".img-container",
-				{
-					visibility: "visible",
-				},
-				0.2
-			)
-			.fromTo(
-				".img-container",
-				{
-					clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-					webkitClipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
-				},
-				{
-					clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-					webkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-					duration: 1,
-					ease: "power3.out",
-				}
-			)
-			.from(
-				".img",
-				{
-					scale: 1.4,
-					ease: "power3.out",
-					duration: 2,
-				},
-				0
-			)
+			.to(".scroll", { opacity: 1, duration: 1 }, 0.7)
+			.to(".positionDetail", { opacity: 1, duration: 1 }, 0.7)
 			.from(
 				".scroll",
 				{

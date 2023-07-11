@@ -6,10 +6,10 @@ import HeroTitle from "../components/HeroTitle.astro";
 <div class="layout-wrapper flex h-screen flex-col justify-between py-12">
 	<div class="flex grow flex-col justify-between gap-3 md:flex-row">
 		<div class="hero-attribute flex flex-col">
-			<HeroTitle title="Full stack" />
-			<HeroTitle title="Developer" />
+			<HeroTitle animation="position" title="Full stack" />
+			<HeroTitle animation="position" title="Developer" />
 			<span
-				class="positionDetail mask-container my-1 font-sans text-base font-light uppercase md:text-xl lg:text-2xl xl:text-3xl 2xl:my-4 2xl:text-4xl"
+				class="positionDetail mask-container my-1 font-sans text-base font-light uppercase opacity-0 md:text-xl lg:text-2xl xl:text-3xl 2xl:my-4"
 				>- Front end addicited
 			</span>
 		</div>
@@ -17,7 +17,7 @@ import HeroTitle from "../components/HeroTitle.astro";
 			<Image
 				src="/images/portret.jpg"
 				alt="Portret Arnaud De Burchgraeve"
-				class="img mb-8 w-[50vw] rounded-full object-contain sm:w-[20rem] md:w-[17.5rem] 2xl:w-96"
+				class="img mb-8 w-[50vw] rounded-full object-contain sm:w-[20rem] md:w-[17.5rem] 2xl:w-[21.5rem]"
 				width={1000}
 				height={1500}
 			/>
@@ -25,7 +25,7 @@ import HeroTitle from "../components/HeroTitle.astro";
 	</div>
 	<div class="flex items-end justify-between">
 		<div
-			class="hero-attribute scroll mask-container mb-5 hidden flex-col items-center gap-1 sm:flex sm:opacity-100">
+			class="hero-attribute scroll mask-container hidden flex-col items-center gap-1 sm:flex xl:mb-5">
 			<svg class="w-8 -rotate-90" viewBox="0 0 471 464"
 				><path d="M37,242H471V222H37L246,14,232,0,0,232,232,464l14-14Z" fill-rule="evenodd"
 				></path></svg
@@ -33,8 +33,8 @@ import HeroTitle from "../components/HeroTitle.astro";
 			<span class="font- text-xs uppercase xl:text-lg">Scroll</span>
 		</div>
 		<div class="hero-attribute flex w-full flex-col items-end">
-			<HeroTitle title="Arnaud" />
-			<HeroTitle title="De Burchgraeve" />
+			<HeroTitle animation="name" title="Arnaud" />
+			<HeroTitle animation="name" title="De Burchgraeve" />
 		</div>
 	</div>
 </div>

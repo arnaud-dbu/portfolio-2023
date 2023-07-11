@@ -3,15 +3,16 @@ import P from "../components/P.astro";
 export interface Props {
 	title: string;
 	description: string;
+	number: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, number } = Astro.props;
 ---
 
-<div class="skill flex flex-col justify-between">
-	<span class="mb-10 text-5xl opacity-20">01</span>
+<div class="skill flex flex-col">
+	<span class="mb-4 text-4xl opacity-20 xl:mb-10 2xl:mb-12 2xl:text-5xl">{number}</span>
 	<div>
-		<span class="mb-4 block text-4xl">{title}</span>
-		<P size="sm" className=" w-2/3 xl:w-full">{description}</P>
+		<span class="mb-4 block text-3xl xl:text-4xl">{title}</span>
+		<P size="sm" className=" sm:w-2/3 xl:w-full">{description}</P>
 	</div>
 </div>

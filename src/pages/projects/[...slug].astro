@@ -39,15 +39,17 @@ const { title, text } = Astro.props;
 	<main>
 		<section class="layout-wrapper pt-16">
 			<a class="block" href="/">
-				<svg class="w-14 pl-2" viewBox="0 0 730 395"
+				<svg class="w-12 pl-2 md:w-14" viewBox="0 0 730 395"
 					><path d="M209,383l-11,12L0,197,198,0l11,12L32,189H730v17H32Z" fill-rule="evenodd"
 					></path></svg
 				>
 			</a>
-			<div class="relative my-20 flex flex-col justify-between">
-				<div class="flex items-center justify-between">
-					<span class="font-serif text-9xl uppercase">{title}</span>
-					<span class="text-5xl opacity-20">/22</span>
+			<div class="relative my-12 flex flex-col justify-between md:my-16">
+				<div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+					<span class="order-1 font-serif text-6xl uppercase md:-order-1 lg:text-7xl xl:text-8xl"
+						>{title}</span
+					>
+					<span class="text-4xl opacity-20 xl:text-5xl">/22</span>
 				</div>
 				<P size="sm">Webdesign, Webdevelopment</P>
 			</div>
@@ -55,12 +57,12 @@ const { title, text } = Astro.props;
 		<Image
 			src="/images/test-image.jpg"
 			alt="Inclusionweb"
-			class="w-full"
+			class="h-[20rem] w-full object-cover md:h-[25rem] xl:h-[30rem]"
 			width={1000}
 			height={250}
 		/>
 		<div class="layout-wrapper my-20">
-			<P size="lg" className="w-1/2 mb-10">
+			<P size="lg" className="md:w-2/3 lg:w-1/2 mb-10">
 				Alex Becher is a digital marketing expert. With years of experience under his belt, he
 				excels at helping businesses increase brand awareness through social media management and
 				the power of strong visuals.
@@ -78,30 +80,23 @@ const { title, text } = Astro.props;
 			<Image
 				src="/images/test-image.jpg"
 				alt="Inclusionweb"
-				class="my-4 w-full"
+				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:my-8 xl:h-[30rem]"
 				width={1000}
-				height={350}
+				height={1000}
 			/>
 			<Image
 				src="/images/test-image.jpg"
 				alt="Inclusionweb"
-				class="my-4 w-full"
+				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:h-[30rem]"
 				width={1000}
-				height={350}
+				height={1000}
 			/>
 			<Image
 				src="/images/test-image.jpg"
 				alt="Inclusionweb"
-				class="my-4 w-full"
+				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:h-[30rem]"
 				width={1000}
-				height={350}
-			/>
-			<Image
-				src="/images/test-image.jpg"
-				alt="Inclusionweb"
-				class="my-4 w-full"
-				width={1000}
-				height={350}
+				height={1000}
 			/>
 
 			<div class="my-12 flex items-end justify-between">
