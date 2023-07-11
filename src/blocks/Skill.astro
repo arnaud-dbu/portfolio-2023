@@ -10,9 +10,9 @@ const { title, description, number } = Astro.props;
 ---
 
 <div class="skill flex flex-col">
-	<span class="mb-4 text-4xl opacity-20 xl:mb-10 2xl:mb-12 2xl:text-5xl">{number}</span>
+	<span class="mb-4 text-4xl text-grey opacity-0 xl:mb-10 2xl:mb-12 2xl:text-5xl">{number}</span>
 	<div>
-		<span class="mb-4 block text-3xl xl:text-4xl">{title}</span>
+		<span class="mb-4 block text-3xl opacity-0 xl:text-4xl">{title}</span>
 		<P size="sm" className=" sm:w-2/3 xl:w-full">{description}</P>
 	</div>
 </div>

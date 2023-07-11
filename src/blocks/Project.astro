@@ -11,13 +11,13 @@ export interface Props {
 const { title, categories, year, href } = Astro.props;
 ---
 
-<a href={href} class="project relative my-8 flex flex-col justify-between xl:my-16">
+<a href={href} class="project relative my-8 flex flex-col justify-between opacity-0 xl:my-16">
 	<div class="flex flex-col md:flex-row md:items-center md:justify-between">
 		<span
 			class="order-1 font-serif text-[3.5rem] uppercase leading-none sm:text-7xl md:-order-1 xl:text-8xl 2xl:text-9xl"
 			>{title}</span
 		>
-		<span class="text-2xl opacity-20 md:text-3xl xl:text-4xl 2xl:text-5xl">/{year}</span>
+		<span class="text-2xl text-grey opacity-20 md:text-3xl xl:text-4xl 2xl:text-5xl">/{year}</span>
 	</div>
 	<P size="sm">{categories}</P>
 </a>
