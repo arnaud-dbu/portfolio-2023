@@ -8,6 +8,6 @@ const { size, className } = Astro.props;
 ---
 
 <p
-	class=` leading-8 xl:leading-10 ${size === "sm" ? "text-sm xl:text-lg" : "text-xl xl:text-2xl"} ${className}`>
+	class=` leading-8 xl:leading-10 font-light ${size === "sm" ? "text-sm xl:text-lg" : "text-xl xl:text-2xl"} ${className}`>
 	<slot />
 </p>

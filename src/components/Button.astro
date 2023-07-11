@@ -7,4 +7,8 @@ export interface Props {
 const { label, href } = Astro.props;
 ---
 
-<a href={href} class="bg-black p-3 px-6 font-sans text-lg text-white">{label}</a>
+<a
+	href={href}
+	class="text-md border-[1.5px] border-black bg-black p-4 px-10 font-sans font-light uppercase tracking-wide text-white"
+	>{label}</a
+>

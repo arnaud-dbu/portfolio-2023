@@ -1,0 +1,13 @@
+---
+export interface Props {
+	title: string;
+	className?: string;
+}
+
+const { title, className } = Astro.props;
+---
+
+<span
+	class="position mask-container font-serif text-5xl uppercase leading-none sm:text-[10vw] lg:text-[9vw] 2xl:text-10xl"
+	>{title}</span
+>

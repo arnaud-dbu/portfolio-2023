@@ -1,46 +1,40 @@
 ---
 import { Image } from "@astrojs/image/components";
+import HeroTitle from "../components/HeroTitle.astro";
 ---
 
 <div class="layout-wrapper flex h-screen flex-col justify-between py-12">
-	<div class="flex flex-col justify-between gap-3 xl:flex-row">
+	<div class="flex grow flex-col justify-between gap-3 md:flex-row">
 		<div class="hero-attribute flex flex-col">
+			<HeroTitle title="Full stack" />
+			<HeroTitle title="Developer" />
 			<span
-				class="position mask-container whitespace-nowrap font-serif text-4xl uppercase xl:text-9xl"
-				>Full stack</span
-			>
-			<span class="position mask-container font-serif text-4xl uppercase xl:text-9xl"
-				>developer</span
-			>
-			<span class="positionDetail mask-container font-sans text-xs uppercase xl:text-2xl"
-				>- Front end addicited</span
-			>
+				class="positionDetail mask-container my-1 font-sans text-base font-light uppercase md:text-xl lg:text-2xl xl:text-3xl 2xl:my-4 2xl:text-4xl"
+				>- Front end addicited
+			</span>
 		</div>
-		<div class="hero-attribute img-container">
+		<div class="hero-attribute img-container flex h-full items-center justify-center md:h-fit">
 			<Image
 				src="/images/portret.jpg"
 				alt="Portret Arnaud De Burchgraeve"
-				class="img h-fit w-32 object-contain xl:w-96"
-				width={300}
-				height={450}
+				class="img mb-8 w-[50vw] rounded-full object-contain sm:w-[20rem] md:w-[17.5rem] 2xl:w-96"
+				width={1000}
+				height={1500}
 			/>
 		</div>
 	</div>
 	<div class="flex items-end justify-between">
-		<div class="hero-attribute scroll mask-container flex flex-col items-center gap-1 xl:gap-2">
-			<Image
-				src="/icons/arrow-down.svg"
-				alt="Arrow Icon"
-				width={40}
-				height={47.5}
-				class="w-4 object-contain xl:w-7"
-			/>
-			<span class="text-xs uppercase xl:text-lg">Scroll</span>
-		</div>
 		<div
-			class="hero-attribute flex flex-col items-end whitespace-nowrap font-serif text-4xl uppercase xl:text-9xl">
-			<span class="name mask-container">Arnaud</span>
-			<span class="name mask-container">De Burchgraeve</span>
+			class="hero-attribute scroll mask-container mb-5 hidden flex-col items-center gap-1 sm:flex sm:opacity-100">
+			<svg class="w-8 -rotate-90" viewBox="0 0 471 464"
+				><path d="M37,242H471V222H37L246,14,232,0,0,232,232,464l14-14Z" fill-rule="evenodd"
+				></path></svg
+			>
+			<span class="font- text-xs uppercase xl:text-lg">Scroll</span>
+		</div>
+		<div class="hero-attribute flex w-full flex-col items-end">
+			<HeroTitle title="Arnaud" />
+			<HeroTitle title="De Burchgraeve" />
 		</div>
 	</div>
 </div>

@@ -9,8 +9,11 @@ module.exports = {
 				black: "#000",
 			},
 			fontFamily: {
-				sans: ["Nunito", "sans-serif"],
+				sans: ["OpenSans", "sans-serif"],
 				serif: ["Melodrama", "serif"],
+			},
+			fontSize: {
+				"10xl": "10rem",
 			},
 		},
 	},

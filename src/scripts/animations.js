@@ -10,8 +10,8 @@ const animations = {
 	},
 	cacheElements() {},
 	generateUI() {
-		this.animateHero();
-		this.generateScrollTrigger();
+		// this.animateHero();
+		// this.generateScrollTrigger();
 	},
 	animateHero() {
 		const heroTimeline = gsap.timeline();
