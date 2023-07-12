@@ -1,2 +1,2 @@
-import "./animations.js";
+import "./animations/main.js";
 import "./cursor.js";

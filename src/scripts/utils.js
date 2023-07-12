@@ -16,8 +16,8 @@ export const animateTitle = (selector, staggerDelay) => {
 			{
 				y: 0,
 				opacity: 1,
-				stagger: 0.04,
-				duration: 1.5,
+				stagger: 0.03,
+				duration: 1,
 				ease: "power4.out",
 			}
 		)
@@ -40,7 +40,7 @@ export const fadeFromBottom = (selector, delay, stagger) => {
 	);
 };
 
-export const fadeFrom = (selector, delay) => {
+export const fadeFrom = (selector, delay, stagger) => {
 	gsap.from(
 		selector,
 		{
