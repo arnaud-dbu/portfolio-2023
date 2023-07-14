@@ -23,31 +23,3 @@ export const animateTitle = (selector, staggerDelay) => {
 		)
 		.delay(staggerDelay);
 };
-
-export const fadeFromBottom = (selector, delay, stagger) => {
-	gsap.fromTo(
-		selector,
-		{
-			y: 30,
-		},
-		{
-			y: 0,
-			duration: 1,
-			opacity: 1,
-			stagger: stagger,
-		},
-		delay
-	);
-};
-
-export const fadeFrom = (selector, delay, stagger) => {
-	gsap.from(
-		selector,
-		{
-			opacity: 0,
-			duration: 1,
-			ease: "power3.out",
-		},
-		delay
-	);
-};

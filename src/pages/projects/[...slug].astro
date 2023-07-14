@@ -6,6 +6,7 @@ import P from "../../components/P.astro";
 import Footer from "../../blocks/Footer.astro";
 import Layout from "../../layouts/Layout.astro";
 import Contact from "../../blocks/Contact.astro";
+import Project from "../../blocks/Project.astro";
 
 export async function getStaticPaths() {
 	const pages = [
@@ -16,24 +17,123 @@ export async function getStaticPaths() {
 		},
 		{
 			slug: "inclusionweb",
-			title: "Astro products",
-			text: "We have lots of products for you",
+			title: "Inclusionweb",
+			categories: "UI Design, Webdevelopment",
+			year: "23",
+			banner: "/images/inclusionweb-1.png",
+			websiteUrl: "https://inclusionweb-s128.vercel.app/login",
+			body: "For my final graduation project, I developed a new version of the Inclusion Web in collaboration with Odisee University College and Resokit. The Inclusion Web is an online tool that allows you to map the social network of individuals in a secure, accessible, and intuitive manner. It provides a visual representation of someone's social network across various domains of life at a glance.",
+			info: [
+				{
+					title: "Client",
+					description: "Resokit & Odisee University College",
+				},
+				{
+					title: "Stack",
+					description: "Next.js, TailwindCSS, Supabase",
+				},
+				{
+					title: "Date",
+					description: "June 23",
+				},
+			],
+			images: [
+				{
+					src: "/images/inclusionweb-3.png",
+					alt: "Inclusionweb",
+				},
+				{
+					src: "/images/inclusionweb-2.png",
+					alt: "Inclusionweb",
+				},
+				{
+					src: "/images/inclusionweb-4.png",
+					alt: "Inclusionweb",
+				},
+			],
 		},
 		{
 			slug: "de-lariks",
-			title: "The ultimate Astro handbook",
-			text: "If you want to learn Astro, you must read this book.",
+			title: "De Lariks",
+			categories: "Graphic Design, UI Design, Webdevelopment",
+			year: "22",
+			banner: "/images/de-lariks-2.png",
+			websiteUrl: "https://de-lariks.be/",
+			body: "I have designed and built a new website for De Lariks, a social organization that offers support to individuals who, due to mental health issues, are currently unable to live independently or can no longer do so, without requiring permanent admission to a psychiatric facility.",
+			info: [
+				{
+					title: "Client",
+					description: "De Lariks",
+				},
+				{
+					title: "Stack",
+					description: "Eleventy",
+				},
+				{
+					title: "Date",
+					description: "October 23",
+				},
+			],
+			images: [
+				{
+					src: "/images/de-lariks-1.png",
+					alt: "Inclusionweb",
+				},
+				{
+					src: "/images/de-lariks-2.png",
+					alt: "Inclusionweb",
+				},
+				{
+					src: "/images/de-lariks-3.png",
+					alt: "Inclusionweb",
+				},
+				{
+					src: "/images/test-image.jpg",
+					alt: "Inclusionweb",
+				},
+			],
+		},
+		{
+			slug: "food-kiosk",
+			title: "Food Kiosk",
+			categories: "Graphic Design, UI Design, Webdevelopment",
+			year: "22",
+			banner: "/images/food-kiosk-3.png",
+			body: "I created a fictional sushi food self-order kiosk application for my Interactive Visual Media Course. This user-friendly app offers a virtual menu, immersive visuals, and convenient ordering options for sushi enthusiasts to explore and place their orders.",
+			info: [
+				{
+					title: "Client",
+					description: "Artevelde University of Applied Sciences",
+				},
+				{
+					title: "Stack",
+					description: "React.js, Styled Components",
+				},
+				{
+					title: "Date",
+					description: "September 22",
+				},
+			],
+
+			videos: [
+				{
+					src: "/videos/sushi.mp4",
+					alt: "Inclusionweb",
+				},
+			],
 		},
 	];
-	return pages.map(({ slug, title, text }) => {
-		return {
-			params: { slug },
-			props: { title, text },
-		};
-	});
+	return pages.map(
+		({ slug, title, categories, year, banner, websiteUrl, body, info, images, videos }) => {
+			return {
+				params: { slug },
+				props: { title, categories, year, banner, websiteUrl, body, info, images, videos },
+			};
+		}
+	);
 }
 
-const { title, text } = Astro.props;
+const { title, categories, year, banner, websiteUrl, body, info, images, videos } = Astro.props;
 ---
 
 <Layout title="Project | Arnaud De Burchgraeve">
@@ -52,56 +152,52 @@ const { title, text } = Astro.props;
 							class="title mask-container order-1 font-serif text-6xl uppercase md:-order-1 lg:text-7xl xl:text-8xl"
 							>{title}</span
 						>
-						<span class="text-4xl opacity-20 xl:text-5xl">/22</span>
+						<span class="text-4xl opacity-20 xl:text-5xl">/{year}</span>
 					</div>
-					<P size="sm">Webdesign, Webdevelopment</P>
+					<P size="sm">{categories}</P>
 				</div>
 			</div>
 			<Image
-				src="/images/test-image.jpg"
-				alt="Inclusionweb"
-				class="h-[20rem] w-full object-cover md:h-[25rem] xl:h-[30rem]"
-				width={1000}
-				height={250}
+				src={banner}
+				alt={title}
+				class="h-[20rem] w-screen object-cover md:h-[25rem] xl:h-[30rem] 2xl:h-[60vh]"
+				width={1920}
+				height={1080}
 			/>
 			<div class="project__details layout-wrapper my-20">
 				<P size="lg" className="md:w-2/3 lg:w-1/2 mb-10">
-					Alex Becher is a digital marketing expert. With years of experience under his belt, he
-					excels at helping businesses increase brand awareness through social media management and
-					the power of strong visuals.
+					{body}
 				</P>
 				<div class="mb-16">
-					<ProjectDetail title="Project" description="Inclusionweb" />
-					<ProjectDetail title="Project" description="Inclusionweb" />
-					<ProjectDetail title="Project" description="Inclusionweb" />
-					<ProjectDetail title="Project" description="Inclusionweb" />
+					{
+						info.map((item: any) => (
+							<ProjectDetail title={item.title} description={item.description} />
+						))
+					}
 				</div>
-				<Button label="Visit Website" href="" />
+				<Button label="Visit Website" href={websiteUrl} />
 			</div>
 		</section>
 
 		<div class="project__images layout-wrapper my-28">
-			<Image
-				src="/images/test-image.jpg"
-				alt="Inclusionweb"
-				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:my-8 xl:h-[30rem]"
-				width={1000}
-				height={1000}
-			/>
-			<Image
-				src="/images/test-image.jpg"
-				alt="Inclusionweb"
-				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:h-[30rem]"
-				width={1000}
-				height={1000}
-			/>
-			<Image
-				src="/images/test-image.jpg"
-				alt="Inclusionweb"
-				class="my-4 h-[20rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:h-[30rem]"
-				width={1000}
-				height={1000}
-			/>
+			{
+				images?.map((item: any) => (
+					<Image
+						src={item.src}
+						alt={item.alt}
+						class="my-4 h-[20rem] max-h-[60rem] w-full rounded-lg object-cover md:my-6 md:h-[25rem] xl:my-8 xl:h-[30rem] 2xl:h-[50vh]"
+						width={1920}
+						height={1080}
+					/>
+				))
+			}
+			{
+				videos?.map((item: any) => (
+					<video controls>
+						<source src={item.src} type="video/mp4" />
+					</video>
+				))
+			}
 
 			<div class="my-12 flex items-end justify-between">
 				<div class="flex flex-col px-0">
