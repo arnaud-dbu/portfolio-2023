@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 		{
 			slug: "inclusionweb",
 			title: "Inclusionweb",
-			categories: "UI Design, Webdevelopment",
+			categories: "Webdesign, Webdevelopment",
 			year: "23",
 			banner: "/images/inclusionweb-1.png",
 			websiteUrl: "https://inclusionweb-s128.vercel.app/login",
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 		{
 			slug: "de-lariks",
 			title: "De Lariks",
-			categories: "Graphic Design, UI Design, Webdevelopment",
+			categories: "Webdesign, Webdevelopment",
 			year: "22",
 			banner: "/images/de-lariks-2.png",
 			websiteUrl: "https://de-lariks.be/",
@@ -81,16 +81,12 @@ export async function getStaticPaths() {
 					src: "/images/de-lariks-3.png",
 					alt: "Inclusionweb",
 				},
-				{
-					src: "/images/test-image.jpg",
-					alt: "Inclusionweb",
-				},
 			],
 		},
 		{
-			slug: "food-kiosk",
-			title: "Food Kiosk",
-			categories: "Graphic Design, UI Design, Webdevelopment",
+			slug: "self-order-kiosk",
+			title: "Sushi 'n Roll",
+			categories: "Webdesign, Webdevelopment",
 			year: "22",
 			banner: "/images/food-kiosk-3.png",
 			body: "I created a fictional sushi food self-order kiosk application for my Interactive Visual Media Course. This user-friendly app offers a virtual menu, immersive visuals, and convenient ordering options for sushi enthusiasts to explore and place their orders.",
@@ -141,7 +137,7 @@ const projects = [
 		title: "De Lariks",
 	},
 	{
-		slug: "food-kiosk",
+		slug: "self-order-kiosk",
 		title: "Food Kiosk",
 	},
 ];
@@ -189,7 +185,7 @@ const nextProject = projects[(i + 1) % projects.length];
 						))
 					}
 				</div>
-				<Button label="Visit Website" href={websiteUrl} />
+				{websiteUrl && <Button label="Visit Website" href={websiteUrl} />}
 			</div>
 		</section>
 

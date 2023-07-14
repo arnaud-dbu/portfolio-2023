@@ -46,13 +46,10 @@ const animations = {
 	},
 	generateScrollTrigger() {
 		let tl = gsap.timeline({ ease: "power3.out" });
-		tl.to(".hero-attribute", {
+		tl.to(".scroll", {
 			opacity: 0,
-			duration: 1,
-			ease: "power3.out",
-			stagger: 0.2,
 			scrollTrigger: {
-				trigger: ".hero-attribute",
+				trigger: ".scroll",
 				scrub: true,
 				start: "top top",
 			},
@@ -62,8 +59,8 @@ const animations = {
 				scrollTrigger: {
 					trigger: ".contact",
 					scrub: true,
-					start: "top 50%",
-					end: "50% 50%",
+					start: "25% 75%",
+					end: "35% 50%",
 				},
 			})
 			.to(".circle", {

@@ -14,9 +14,10 @@ const animations = {
 		this.animateProjects();
 	},
 	animateHero() {
-		let tl = gsap.timeline();
+		let tl = gsap.timeline({ ease: "power3.out" });
 
-		tl.call(animateTitle, [".name", 0])
+		tl.set(".hero", { visibility: "visible" })
+			.call(animateTitle, [".name", 0])
 			.call(animateTitle, [".position", 0])
 			.to(".scroll", { opacity: 1, duration: 1 }, 0.7)
 			.to(".positionDetail", { opacity: 1, duration: 1 }, 0.7)
@@ -28,7 +29,8 @@ const animations = {
 					ease: "power3.out",
 				},
 				1
-			);
+			)
+			.from(".scroll svg", { y: -7.5, duration: 0.75, repeat: -1, yoyo: true }, 1);
 	},
 	animateAbout() {
 		let tl = gsap.timeline({ ease: "power3.out", paused: true });

@@ -50,6 +50,11 @@ const { title } = Astro.props;
 		padding-right: 1.5rem;
 	}
 
+	.layout-wrapper.section-spacing {
+		margin-top: 15rem;
+		margin-bottom: 15rem;
+	}
+
 	.mask-container {
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 	}
@@ -118,6 +123,10 @@ const { title } = Astro.props;
 		border: none;
 	}
 
+	.project:hover span {
+		color: #f03232 !important;
+	}
+
 	.absolute-center {
 		position: absolute;
 		top: 50%;
@@ -157,6 +166,14 @@ const { title } = Astro.props;
 		top: 0;
 		transform: translate(calc(-50% + 15px), -50%);
 		transition: 0.15s linear;
+	}
+
+	@media screen and (max-width: 768px) {
+		.cursor,
+		.cursor-shadow,
+		.cursor2 {
+			display: none;
+		}
 	}
 
 	.cursor2 {
