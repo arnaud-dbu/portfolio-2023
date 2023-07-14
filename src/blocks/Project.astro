@@ -18,11 +18,11 @@ const { title, categories, year, href } = Astro.props;
 	class="project relative my-8 flex flex-col justify-between opacity-0 transition-colors hover:text-red xl:my-16">
 	<div class="flex flex-col md:flex-row md:items-center md:justify-between">
 		<span
-			class="order-1 font-serif text-[13vw] uppercase leading-none sm:text-7xl sm:text-[3.5rem] md:-order-1 xl:text-8xl 2xl:text-9xl"
+			class="order-1 font-serif text-[13vw] uppercase leading-none transition-colors sm:text-7xl sm:text-[3.5rem] md:-order-1 xl:text-8xl 2xl:text-9xl"
 			>{title}</span
 		>
 		<span
-			class=`text-2xl text-grey ${twMerge("text-grey, project-hover:text-red ")}  opacity-20 md:text-3xl xl:text-4xl 2xl:text-5xl`
+			class=`text-2xl  ${twMerge("project-hover:text-red", "text-grey")} transition-colors opacity-20 md:text-3xl xl:text-4xl 2xl:text-5xl`
 			>/{year}</span
 		>
 	</div>
