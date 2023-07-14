@@ -6,9 +6,15 @@ import P from "../../components/P.astro";
 import Footer from "../../blocks/Footer.astro";
 import Layout from "../../layouts/Layout.astro";
 import Contact from "../../blocks/Contact.astro";
+import Project from "../../blocks/Project.astro";
 
 export async function getStaticPaths() {
 	const pages = [
+		{
+			slug: undefined,
+			title: "Astro Store",
+			text: "Welcome to the Astro store!",
+		},
 		{
 			slug: "inclusionweb",
 			title: "Inclusionweb",
@@ -117,37 +123,17 @@ export async function getStaticPaths() {
 			],
 		},
 	];
-
 	return pages.map(
 		({ slug, title, categories, year, banner, websiteUrl, body, info, images, videos }) => {
 			return {
 				params: { slug },
-				props: { slug, title, categories, year, banner, websiteUrl, body, info, images, videos },
+				props: { title, categories, year, banner, websiteUrl, body, info, images, videos },
 			};
 		}
 	);
 }
 
-const { slug, title, categories, year, banner, websiteUrl, body, info, images, videos } =
-	Astro.props;
-
-const projects = [
-	{
-		slug: "inclusionweb",
-		title: "Inclusionweb",
-	},
-	{
-		slug: "de-lariks",
-		title: "De Lariks",
-	},
-	{
-		slug: "food-kiosk",
-		title: "Food Kiosk",
-	},
-];
-
-const i = projects.findIndex((project) => project.slug === slug);
-const nextProject = projects[(i + 1) % projects.length];
+const { title, categories, year, banner, websiteUrl, body, info, images, videos } = Astro.props;
 ---
 
 <Layout title="Project | Arnaud De Burchgraeve">
@@ -216,14 +202,10 @@ const nextProject = projects[(i + 1) % projects.length];
 			<div class="my-12 flex items-end justify-between">
 				<div class="flex flex-col px-0">
 					<P size="sm">Next Project</P>
-					<a
-						href={nextProject?.slug}
-						class="font-serif text-4xl uppercase transition-colors hover:text-red"
-						>{nextProject?.title}</a
-					>
+					<a class="font-serif text-4xl uppercase">Inclusionweb</a>
 				</div>
 				<button
-					class="scrollToTop relative h-12 w-12 rotate-90 rounded-full border-[1px] border-black transition-colors hover:border-none hover:bg-red hover:fill-white">
+					class="scrollToTop relative h-12 w-12 rotate-90 rounded-full border-[1px] border-black">
 					<svg class="absolute-center" width="22.52" height="27.261" viewBox="0 0 471 464"
 						><path d="M37,242H471V222H37L246,14,232,0,0,232,232,464l14-14Z" fill-rule="evenodd"
 						></path></svg

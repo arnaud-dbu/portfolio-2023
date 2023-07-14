@@ -9,6 +9,12 @@ const { label, href } = Astro.props;
 
 <a
 	href={href}
-	class="block w-fit rounded-lg bg-black px-8 py-4 font-sans text-sm font-light uppercase tracking-widest text-white"
-	>{label}</a
->
+	class="group relative inline-block inline-flex items-center justify-start overflow-hidden rounded-full bg-black px-8 py-4 font-medium transition-all hover:bg-red">
+	<span
+		class="absolute inset-0 rounded-full border-0 border-red transition-all duration-100 ease-linear group-hover:border-[25px]"
+	></span>
+	<span
+		class="relative w-full text-left font-light uppercase tracking-widest text-white transition-colors duration-200 ease-in-out group-hover:text-white"
+		>{label}</span
+	>
+</a>

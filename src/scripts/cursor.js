@@ -1,20 +1,20 @@
 // UPDATE: I was able to get this working again... Enjoy!
 
-var cursor = document.querySelector(".cursor");
-var cursorShadow = document.querySelector(".cursor-shadow");
-var cursorinner = document.querySelector(".cursor2");
-var a = document.querySelectorAll("a");
+const cursor = document.querySelector(".cursor");
+const cursorShadow = document.querySelector(".cursor-shadow");
+const cursorinner = document.querySelector(".cursor2");
+const buttons = document.querySelectorAll("a, button");
 
 document.addEventListener("mousemove", function (e) {
-	var x = e.clientX;
-	var y = e.clientY;
+	const x = e.clientX;
+	const y = e.clientY;
 	cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
 	cursorShadow.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
 });
 
 document.addEventListener("mousemove", function (e) {
-	var x = e.clientX;
-	var y = e.clientY;
+	const x = e.clientX;
+	const y = e.clientY;
 	cursorinner.style.left = x + "px";
 	cursorinner.style.top = y + "px";
 });
@@ -31,13 +31,13 @@ document.addEventListener("mouseup", function () {
 	cursorinner.classList.remove("cursorinnerhover");
 });
 
-a.forEach((item) => {
+buttons.forEach((item) => {
 	item.addEventListener("mouseover", () => {
-		cursor.classList.add("hover");
-		cursorShadow.classList.add("hover");
+		cursor.classList.add("hidden");
+		cursorShadow.classList.add("hidden");
 	});
 	item.addEventListener("mouseleave", () => {
-		cursor.classList.remove("hover");
-		cursorShadow.classList.remove("hover");
+		cursor.classList.remove("hidden");
+		cursorShadow.classList.remove("hidden");
 	});
 });

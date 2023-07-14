@@ -37,6 +37,10 @@ const animations = {
 			start: "25% center",
 			onEnter: () => {
 				tl.play();
+				document.querySelector(".cursor").classList.add("invert-bg");
+			},
+			onLeaveBack: () => {
+				document.querySelector(".cursor").classList.remove("invert-bg");
 			},
 		});
 	},
