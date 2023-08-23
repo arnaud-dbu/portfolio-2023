@@ -37,7 +37,7 @@ const animations = {
 		gsap.set("about__body p, about__body a", { opacity: 0 });
 
 		tl.set(".about", { visibility: "visible" }).call(animateTitle, [".about h2", 0]).fromTo(
-			".about__body *",
+			".about__body",
 			{
 				y: 30,
 				opacity: 0,
@@ -53,7 +53,7 @@ const animations = {
 
 		ScrollTrigger.create({
 			trigger: ".about",
-			start: "top center",
+			start: "top 90%",
 			onEnter: () => {
 				tl.play();
 			},
@@ -80,7 +80,7 @@ const animations = {
 
 		ScrollTrigger.create({
 			trigger: ".skills",
-			start: "top center",
+			start: "top 90%",
 			onEnter: () => {
 				tl.play();
 			},
@@ -117,7 +117,7 @@ const animations = {
 
 		ScrollTrigger.create({
 			trigger: ".projects",
-			start: "top center",
+			start: "top 90%",
 			onEnter: () => {
 				tl.play();
 			},
